@@ -47,6 +47,10 @@ namespace zagreb
         var GITHUB_ACCOUNT_NAME = Environment.GetEnvironmentVariable("GITHUB_ACCOUNT_NAME");
         var GITHUB_REPO_NAME = Environment.GetEnvironmentVariable("GITHUB_REPO_NAME");
         var GITHUB_ACTION_ID = Environment.GetEnvironmentVariable("GITHUB_ACTION_ID");
+
+        var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.github.com/repos/{GITHUB_ACCOUNT_NAME}/{GITHUB_REPO_NAME}/actions/workflows/{GITHUB_ACTION_ID}/dispatches")
+        {
+        };
     }
   }
 }
