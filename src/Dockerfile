@@ -5,3 +5,5 @@ COPY . /src/dotnet-function-app
 RUN cd /src/dotnet-function-app && \
     mkdir -p /home/site/wwwroot && \
     dotnet publish *.csproj --output /home/site/wwwroot
+
+FROM mcr.microsoft.com/azure-functions/dotnet:3.0
