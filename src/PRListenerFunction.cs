@@ -21,6 +21,14 @@ namespace zagreb
       ILogger log)
     {
       log.LogInformation("a new PR has been created...");
+
+      req.Headers.TryGetValue("X-GitHub-Event", out StringValues eventName);
+      req.Headers.TryGetValue("X-Hub-Signature", out StringValues signature);
+      req.Headers.TryGetValue("X-GitHub-Delivery", out StringValues delivery);
+
+      log.LogInformation($"EventName : {eventName}");
+      log.LogInformation($"Signature : {signature}");
+      log.LogInformation($"Delivery : {delivery}");
     }
   }
 }
