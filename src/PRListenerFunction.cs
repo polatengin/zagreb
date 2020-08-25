@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System;
+using System.Linq;
 
 namespace zagreb
 {
@@ -39,6 +40,12 @@ namespace zagreb
       log.LogInformation($"Body parsed and stored in the payload object (pull request number is {payload.Number})");
 
       var isAzureRelated = payload?.PullRequest?.Labels.Count(e => e.Name == "Azure") > 0;
+
+      if (!isAzureRelated)
+      {
+        return new OkObjectResult("");
+      }
+
       var repo = payload?.Repository?.FullName;
       log.LogInformation($"Repo : {repo}");
 
