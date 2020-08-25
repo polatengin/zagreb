@@ -62,6 +62,9 @@ namespace zagreb
           },
           Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{repo}\", \"branch\": \"{branch}\"}} }}")
         };
+        using (var response = await client.SendAsync(request))
+        {
+        }
       }
 
       return new OkObjectResult("OK");
