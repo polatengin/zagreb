@@ -20,6 +20,7 @@ namespace zagreb
       [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
       ILogger log)
     {
+      log.LogInformation("a new PR has been created...");
     }
   }
 }
