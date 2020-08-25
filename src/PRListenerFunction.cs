@@ -50,6 +50,8 @@ namespace zagreb
 
         var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.github.com/repos/{GITHUB_ACCOUNT_NAME}/{GITHUB_REPO_NAME}/actions/workflows/{GITHUB_ACTION_ID}/dispatches")
         {
+          Headers = {
+          },
           Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{repo}\", \"branch\": \"{branch}\"}} }}")
         };
     }
