@@ -15,5 +15,11 @@ namespace zagreb
 {
   public static class PRListenerFunction
   {
+    [FunctionName(nameof(PRListenerFunction))]
+    public static async Task<IActionResult> Run(
+      [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+      ILogger log)
+    {
+    }
   }
 }
