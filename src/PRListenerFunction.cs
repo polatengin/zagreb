@@ -38,6 +38,7 @@ namespace zagreb
 
       log.LogInformation($"Body parsed and stored in the payload object (pull request number is {payload.Number})");
 
+      var isAzureRelated = payload?.PullRequest?.Labels.Count(e => e.Name == "Azure") > 0;
       var repo = payload?.Repository?.FullName;
       log.LogInformation($"Repo : {repo}");
 
