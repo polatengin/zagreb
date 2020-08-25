@@ -29,6 +29,10 @@ namespace zagreb
       log.LogInformation($"EventName : {eventName}");
       log.LogInformation($"Signature : {signature}");
       log.LogInformation($"Delivery : {delivery}");
+
+      var body = await new StreamReader(req.Body).ReadToEndAsync();
+
+      log.LogInformation($"Body has been read to end ({body.Length} characters)");
     }
   }
 }
