@@ -33,6 +33,10 @@ namespace zagreb
       var body = await new StreamReader(req.Body).ReadToEndAsync();
 
       log.LogInformation($"Body has been read to end ({body.Length} characters)");
+
+      var payload = JsonConvert.DeserializeObject<WebHookPayload>(body);
+
+      log.LogInformation($"Body parsed and stored in the payload object (pull request number is {payload.Number})");
     }
   }
 }
