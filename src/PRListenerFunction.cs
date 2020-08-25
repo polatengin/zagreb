@@ -13,4 +13,7 @@ using System;
 
 namespace zagreb
 {
+  public static class PRListenerFunction
+  {
+  }
 }
