@@ -52,6 +52,7 @@ namespace zagreb
         {
           Headers = {
             Authorization = new AuthenticationHeaderValue("token", GITHUB_PAT),
+            UserAgent = { ProductInfoHeaderValue.Parse("RunPipeline") },
           },
           Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{repo}\", \"branch\": \"{branch}\"}} }}")
         };
