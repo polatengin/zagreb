@@ -43,6 +43,11 @@ namespace zagreb
 
       var branch = payload?.PullRequest?.Head?.Ref;
       log.LogInformation($"Branch : {branch}");
+
+      log.LogInformation("CI pipeline is about to be triggered");
+
+      using (var client = new HttpClient())
+      {
         var GITHUB_PAT = Environment.GetEnvironmentVariable("GITHUB_PAT");
         var GITHUB_ACCOUNT_NAME = Environment.GetEnvironmentVariable("GITHUB_ACCOUNT_NAME");
         var GITHUB_REPO_NAME = Environment.GetEnvironmentVariable("GITHUB_REPO_NAME");
@@ -57,6 +62,7 @@ namespace zagreb
           },
           Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{repo}\", \"branch\": \"{branch}\"}} }}")
         };
+      }
 
       return new OkObjectResult("OK");
     }
