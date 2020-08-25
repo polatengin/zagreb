@@ -57,6 +57,8 @@ namespace zagreb
           },
           Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{repo}\", \"branch\": \"{branch}\"}} }}")
         };
+
+      return new OkObjectResult("OK");
     }
   }
 }
