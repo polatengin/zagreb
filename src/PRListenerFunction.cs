@@ -37,6 +37,12 @@ namespace zagreb
       var payload = JsonConvert.DeserializeObject<WebHookPayload>(body);
 
       log.LogInformation($"Body parsed and stored in the payload object (pull request number is {payload.Number})");
+
+      var repo = payload?.Repository?.FullName;
+      log.LogInformation($"Repo : {repo}");
+
+      var branch = payload?.PullRequest?.Head?.Ref;
+      log.LogInformation($"Branch : {branch}");
     }
   }
 }
