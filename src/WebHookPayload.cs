@@ -3,6 +3,24 @@ using Newtonsoft.Json;
 
 namespace zagreb
 {
+  public partial class WebHookPayload
+  {
+    [JsonProperty("action")]
+    public string Action { get; set; }
+
+    [JsonProperty("number")]
+    public long Number { get; set; }
+
+    [JsonProperty("pull_request")]
+    public PullRequest PullRequest { get; set; }
+
+    [JsonProperty("repository")]
+    public Repo Repository { get; set; }
+
+    [JsonProperty("sender")]
+    public Sender Sender { get; set; }
+  }
+
   public partial class PullRequest
   {
     [JsonProperty("url")]
