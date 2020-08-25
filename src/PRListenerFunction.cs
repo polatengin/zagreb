@@ -64,6 +64,7 @@ namespace zagreb
         };
         using (var response = await client.SendAsync(request))
         {
+          log.LogInformation($"CI pipeline is triggered, response is : {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
         }
       }
 
