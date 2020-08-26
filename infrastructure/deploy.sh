@@ -37,3 +37,8 @@ then
   echo "az account list-locations --query \"[].{DisplayName:displayName, Name:name}\" -o table"
   read -p "Location : " LOCATION
 fi
+
+cd terraform
+
+# download providers and initialize terraform
+terraform init
