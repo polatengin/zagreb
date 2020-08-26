@@ -8,6 +8,7 @@ locals {
   resource_group_name       = "${local.project_name}-rg"
   storage_account_name      = "${local.project_name}st"
   app_service_plan_name     = "${local.project_name}-plan"
+  application_insights_name = "${local.project_name}-func-ai"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -45,4 +46,15 @@ resource "azurerm_app_service_plan" "app_service_plan" {
     tier = "Dynamic"
     size = "Y1"
   }
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
+# DEPLOY THE APPLICATION INSIGHTS
+# ---------------------------------------------------------------------------------------------------------------------
+
+resource "azurerm_application_insights" "application_insights" {
+  name                = local.application_insights_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  application_type    = "web"
 }
