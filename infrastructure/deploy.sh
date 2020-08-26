@@ -13,3 +13,20 @@ commands:
   -p [--project-name]         name of the project, it'll be use to generate names for resources, leave blank to auto-generate a name
   -l [--location]             location of the resources, westeurope, eastus, e.g.
 "
+
+while [[ "$#" -gt 0 ]]
+do
+  case $1 in
+    -h | --help)
+      echo "$HELP"
+      exit 0
+    ;;
+    -p | --project-name)
+      PROJECT_NAME=$2
+    ;;
+    -l | --location)
+      LOCATION=$2
+    ;;
+  esac
+  shift
+done
