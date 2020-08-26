@@ -5,6 +5,7 @@
 
 variable "location" {
   description = "The location to set for the project"
+  default     = "West Europe"
 }
 
 variable "project_name" {
