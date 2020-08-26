@@ -30,3 +30,10 @@ do
   esac
   shift
 done
+
+if [ -z "$LOCATION" ]
+then
+  echo "It should be a valid location, you can execute following command and get list of locations"
+  echo "az account list-locations --query \"[].{DisplayName:displayName, Name:name}\" -o table"
+  read -p "Location : " LOCATION
+fi
