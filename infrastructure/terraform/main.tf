@@ -9,6 +9,7 @@ locals {
   storage_account_name      = "${local.project_name}st"
   app_service_plan_name     = "${local.project_name}-plan"
   application_insights_name = "${local.project_name}-func-ai"
+  function_app_name         = "${local.project_name}-func"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -57,4 +58,24 @@ resource "azurerm_application_insights" "application_insights" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   application_type    = "web"
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
+# DEPLOY THE AZURE FUNCTION APP
+# ---------------------------------------------------------------------------------------------------------------------
+
+resource "azurerm_function_app" "function_app" {
+  name                       = local.function_app_name
+  location                   = azurerm_resource_group.rg.location
+  resource_group_name        = azurerm_resource_group.rg.name
+  app_service_plan_id        = azurerm_app_service_plan.app_service_plan.id
+  storage_account_name       = azurerm_storage_account.storage.name
+  storage_account_access_key = azurerm_storage_account.storage.primary_access_key
+
+  version                    = 3
+
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.application_insights.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING" = "InstrumentationKey=${azurerm_application_insights.application_insights.instrumentation_key}"
+  }
 }
