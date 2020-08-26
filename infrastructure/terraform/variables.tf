@@ -3,3 +3,6 @@
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
 
+variable "location" {
+  description = "The location to set for the project"
+}
