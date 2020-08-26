@@ -9,3 +9,13 @@ This project is a mediator that wakes-up when a PR created on a public GitHub re
   - PR (created on Forked Repo against Source Repo)
   - Pipeline (runs on Special Repo)
   - Azure Function (mediator between Source Repo and Special Repo)
+
+- Flow
+  - Source Repo forked on Forked Repo
+  - New branch created on Forked Repo
+  - Development happened on the new branch on Forked Repo
+  - PR created on Forked Repo against Source Repo, so PR is available on Source Repo
+  - Source Repo triggers the mediator Azure Function via WebHook
+  - Azure Function triggers the Pipeline on the Special Repo
+  - Pipeline run jobs & steps, collect the output
+  - Pipeline make a comment on the PR on Source Repo
