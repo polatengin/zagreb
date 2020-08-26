@@ -42,3 +42,6 @@ cd terraform
 
 # download providers and initialize terraform
 terraform init
+
+# start deploying
+terraform apply -auto-approve -var "project_name=${PROJECT_NAME}" -var "location=${LOCATION}"
