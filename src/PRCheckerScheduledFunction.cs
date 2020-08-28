@@ -37,6 +37,9 @@ namespace zagreb
         };
         using (var response = await client.SendAsync(request))
         {
+          if (response.IsSuccessStatusCode)
+          {
+          }
         }
       }
     }
