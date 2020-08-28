@@ -60,6 +60,10 @@ namespace zagreb
                   pr.RowKey = rowKey;
 
                   table.Execute(TableOperation.InsertOrMerge(pr));
+
+                  result.Result = pr;
+
+                  log.LogInformation("pr has been saved");
                 }
               }
             }
