@@ -39,6 +39,8 @@ namespace zagreb
         {
           if (response.IsSuccessStatusCode)
           {
+            var body = await response.Content.ReadAsStringAsync();
+
           }
         }
       }
