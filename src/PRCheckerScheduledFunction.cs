@@ -53,6 +53,9 @@ namespace zagreb
               if (pr.Labels.Count(e => e.Name == "Azure") > 0)
               {
                 var result = table.Execute(TableOperation.Retrieve<PullRequest>(partitionKey, rowKey));
+                if (result?.Result == null)
+                {
+                }
               }
             }
           }
