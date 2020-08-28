@@ -46,6 +46,10 @@ namespace zagreb
             foreach (var pr in prs)
             {
               log.LogInformation($"{pr.Title} -> {string.Join(',', pr.Labels.Select(e => e.Name).ToList())}");
+
+              var partitionKey = pr.Head.Repo.Name;
+              var rowKey = pr.Number.ToString();
+
             }
           }
         }
