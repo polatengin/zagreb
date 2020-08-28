@@ -35,6 +35,9 @@ namespace zagreb
             Accept = { MediaTypeWithQualityHeaderValue.Parse("application/vnd.github.v3+json") }
           }
         };
+        using (var response = await client.SendAsync(request))
+        {
+        }
       }
     }
   }
