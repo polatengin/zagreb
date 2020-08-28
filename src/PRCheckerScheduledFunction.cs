@@ -50,6 +50,9 @@ namespace zagreb
               var partitionKey = pr.Head.Repo.Name;
               var rowKey = pr.Number.ToString();
 
+              if (pr.Labels.Count(e => e.Name == "Azure") > 0)
+              {
+              }
             }
           }
         }
