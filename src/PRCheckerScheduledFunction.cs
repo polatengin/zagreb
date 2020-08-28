@@ -20,6 +20,10 @@ namespace zagreb
     {
       log.LogInformation("schedule...");
 
+        var GITHUB_PAT = Environment.GetEnvironmentVariable("GITHUB_PAT");
+        var GITHUB_ACCOUNT_NAME = Environment.GetEnvironmentVariable("GITHUB_ACCOUNT_NAME");
+        var GITHUB_REPO_NAME = Environment.GetEnvironmentVariable("GITHUB_REPO_NAME");
+        var GITHUB_ACTION_ID = Environment.GetEnvironmentVariable("GITHUB_ACTION_ID");
     }
   }
 }
