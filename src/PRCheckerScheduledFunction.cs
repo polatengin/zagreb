@@ -18,6 +18,8 @@ namespace zagreb
       [Table("zagreb")] CloudTable table,
       ILogger log)
     {
+      log.LogInformation("schedule...");
+
     }
   }
 }
