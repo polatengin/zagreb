@@ -65,6 +65,10 @@ namespace zagreb
 
                   log.LogInformation("pr has been saved");
                 }
+
+                var fromTable = result?.Result as PullRequest;
+
+                log.LogInformation(fromTable?.ToString());
               }
             }
           }
