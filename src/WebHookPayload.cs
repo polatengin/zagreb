@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Azure.Cosmos.Table;
 using Newtonsoft.Json;
 
 namespace zagreb
@@ -21,7 +22,7 @@ namespace zagreb
     public Sender Sender { get; set; }
   }
 
-  public partial class PullRequest
+  public partial class PullRequest : TableEntity
   {
     [JsonProperty("url")]
     public Uri Url { get; set; }
