@@ -41,6 +41,8 @@ namespace zagreb
           {
             var body = await response.Content.ReadAsStringAsync();
 
+            var prs = JsonConvert.DeserializeObject<PullRequest[]>(body);
+
           }
         }
       }
