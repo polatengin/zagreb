@@ -58,6 +58,8 @@ namespace zagreb
                 {
                   pr.PartitionKey = partitionKey;
                   pr.RowKey = rowKey;
+
+                  table.Execute(TableOperation.InsertOrMerge(pr));
                 }
               }
             }
