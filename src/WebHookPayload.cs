@@ -168,7 +168,7 @@ namespace zagreb
   public partial class Label
   {
     [JsonProperty("id")]
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [JsonProperty("node_id")]
     public string NodeId { get; set; }
