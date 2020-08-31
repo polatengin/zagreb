@@ -68,9 +68,20 @@ namespace zagreb
 
                 var fromTable = result?.Result as PullRequest;
 
-                log.LogInformation(fromTable?.ToString());
-              }
-            }
+        if (fromTable == null || fromTable?.UpdatedAt != pr.UpdatedAt)
+        {
+          log.LogWarning($"fromTable: {fromTable?.UpdatedAt}");
+          log.LogWarning($"pr: {pr?.UpdatedAt}");
+
+          table.Execute(TableOperation.InsertOrMerge(pr));
+
+          log.LogInformation($"{pr.Number} either detected first time or has been changed since last time");
+
+          var repo = pr.Head.Repo.FullName;
+          log.LogInformation($"Repo : {repo}");
+
+          var branch = pr.Head.Ref;
+          log.LogInformation($"Branch : {branch}");
           }
         }
       }
