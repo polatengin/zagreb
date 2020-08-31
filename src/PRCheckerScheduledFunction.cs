@@ -1,12 +1,8 @@
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System;
 using System.Linq;
 using Microsoft.Azure.Cosmos.Table;
-using Newtonsoft.Json;
 
 namespace zagreb
 {
