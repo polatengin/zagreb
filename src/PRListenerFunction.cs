@@ -7,9 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System;
 using System.Linq;
 
 namespace zagreb
