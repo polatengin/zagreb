@@ -74,6 +74,11 @@ resource "azurerm_function_app" "function_app" {
 
   version                    = 3
 
+  source_control {
+    repo_url = "https://github.com/polatengin/zagreb"
+    branch   = "master"
+  }
+
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.application_insights.instrumentation_key
     "APPLICATIONINSIGHTS_CONNECTION_STRING" = "InstrumentationKey=${azurerm_application_insights.application_insights.instrumentation_key}"
