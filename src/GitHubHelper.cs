@@ -43,7 +43,7 @@ namespace zagreb
       }
     }
 
-    public static async Task<bool> TriggerWorkflowAsync(string targetRepoName, string targetBranchName)
+    public static async Task<bool> TriggerWorkflowAsync(string targetRepoName, string targetBranchName, long? pr_number)
     {
       using (var client = new HttpClient())
       {
