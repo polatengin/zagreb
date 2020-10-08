@@ -53,6 +53,9 @@ namespace zagreb
       var branch = payload?.PullRequest?.Head?.Ref;
       log.LogInformation($"Branch : {branch}");
 
+      var pr_number = payload?.PullRequest?.Number;
+      log.LogInformation($"PRNumber : {pr_number}");
+
       log.LogInformation("CI pipeline is about to be triggered");
 
       var isTriggered = await GitHubHelper.TriggerWorkflowAsync(repo, branch);
