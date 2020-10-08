@@ -40,7 +40,7 @@ namespace zagreb
 
       var isAzureRelated = payload?.PullRequest?.Labels.Count(e => e.Name == "Azure") > 0;
 
-      if (!isAzureRelated)
+      var isApproved = payload?.Review?.State == "approved";
       {
         return new OkObjectResult("");
       }
