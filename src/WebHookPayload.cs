@@ -12,6 +12,9 @@ namespace zagreb
     [JsonProperty("number")]
     public long Number { get; set; }
 
+    [JsonProperty("review")]
+    public Review Review { get; set; }
+
     [JsonProperty("pull_request")]
     public PullRequest PullRequest { get; set; }
 
