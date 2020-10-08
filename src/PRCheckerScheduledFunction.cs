@@ -54,7 +54,7 @@ namespace zagreb
           var branch = pr.Head.Ref;
           log.LogInformation($"Branch : {branch}");
 
-          var isTriggered = await GitHubHelper.TriggerWorkflowAsync(repo, branch);
+          var isTriggered = await GitHubHelper.TriggerWorkflowAsync(repo, branch, pr.Number);
 
           if (isTriggered)
           {
