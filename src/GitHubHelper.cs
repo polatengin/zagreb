@@ -59,7 +59,7 @@ namespace zagreb
             UserAgent = { ProductInfoHeaderValue.Parse("RunPipeline") },
             Accept = { MediaTypeWithQualityHeaderValue.Parse("application/vnd.github.v3+json") }
           },
-          Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{targetRepoName}\", \"branch\": \"{targetBranchName}\"}} }}")
+          Content = new StringContent($"{{ \"ref\":\"master\", \"inputs\": {{\"repo\": \"{targetRepoName}\", \"branch\": \"{targetBranchName}\", \"target_repository\": \"{GITHUB_ACCOUNT_NAME}/{GITHUB_REPO_NAME}\", \"target_pr\": \"{pr_number}\"}} }}")
         };
         using (var response = await client.SendAsync(request))
         {
