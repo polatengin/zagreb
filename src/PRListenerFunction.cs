@@ -58,7 +58,7 @@ namespace zagreb
 
       log.LogInformation("CI pipeline is about to be triggered");
 
-      var isTriggered = await GitHubHelper.TriggerWorkflowAsync(repo, branch);
+      var isTriggered = await GitHubHelper.TriggerWorkflowAsync(repo, branch, pr_number);
 
       if (isTriggered)
       {
